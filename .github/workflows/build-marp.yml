@@ -1,0 +1,32 @@
+name: Build Marp presentation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Build PPTX and PDF
+        run: |
+          marp Pomoc_publiczna_JST_2025_PEŁNA.md --pptx --pdf --output .
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: prezentacja_JST_2025
+          path: |
+            Pomoc_publiczna_JST_2025_PEŁNA.pptx
+            Pomoc_publiczna_JST_2025_PEŁNA.pdf
