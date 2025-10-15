@@ -24,7 +24,7 @@ jobs:
           marp Pomoc_publiczna_JST_2025_PEŁNA.md --pptx --pdf --output .
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: prezentacja_JST_2025
           path: |
