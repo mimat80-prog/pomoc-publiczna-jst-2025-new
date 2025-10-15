@@ -21,7 +21,8 @@ jobs:
 
       - name: Build PPTX and PDF
         run: |
-          marp Pomoc_publiczna_JST_2025_PEŁNA.md --pptx --pdf --output .
+          marp Pomoc_publiczna_JST_2025_PEŁtNA.md --pptx --output .
+          marp Pomoc_publiczna_JST_2025_PEŁtNA.md --pdf --output .
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
