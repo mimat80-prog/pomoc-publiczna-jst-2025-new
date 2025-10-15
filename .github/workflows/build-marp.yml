@@ -3,16 +3,17 @@ name: Build Marp presentation
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -29,5 +30,5 @@ jobs:
         with:
           name: prezentacja_JST_2025
           path: |
-            Pomoc_publiczna_JST_2025_PEŁNA.pptx
-            Pomoc_publiczna_JST_2025_PEŁNA.pdf
+            Pomoc_publiczna_JST_2025_PEŁtNA.pptx
+            Pomoc_publiczna_JST_2025_PEŁtNA.pdf
