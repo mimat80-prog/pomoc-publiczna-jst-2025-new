@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,15 +21,18 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
 
-      - name: Build PPTX and PDF
+      - name: Build PPTX
         run: |
-          marp Pomoc_publiczna_JST_2025_PEŁtNA.md --pptx --output .
-          marp Pomoc_publiczna_JST_2025_PEŁtNA.md --pdf --output .
+          marp "Pomoc_publiczna_JST_2025_PELTNA.md" --pptx --output "Pomoc_publiczna_JST_2025_PELTNA.pptx"
+
+      - name: Build PDF
+        run: |
+          marp "Pomoc_publiczna_JST_2025_PELTNA.md" --pdf --output "Pomoc_publiczna_JST_2025_PELTNA.pdf"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: prezentacja_JST_2025
           path: |
-            Pomoc_publiczna_JST_2025_PEŁtNA.pptx
-            Pomoc_publiczna_JST_2025_PEŁtNA.pdf
+            Pomoc_publiczna_JST_2025_PELTNA.pptx
+            Pomoc_publiczna_JST_2025_PELTNA.pdf
